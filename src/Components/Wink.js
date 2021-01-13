@@ -101,7 +101,7 @@ class Wink extends Component {
                                 )
                             })
                         }
-                        <i className="fas fa-user-plus" onClick={(e) => this.addPlayer(e)}></i>
+                        <i className="fas fa-user-plus " onClick={(e) => this.addPlayer(e)}></i>
                         <button className="game-buttons d-block" style={{ margin: "0 auto" }} type="submit">يلا نلعب</button>
 
                     </form>

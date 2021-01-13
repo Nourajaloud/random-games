@@ -84,6 +84,11 @@
   bottom: -36px;
   right: -95px;
 }
+.last-card{
+  color: #fff;
+  margin-top: 20px;
+
+}
 .first-do-title {
   color: #fff;
   font-weight: 700;

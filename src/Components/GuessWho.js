@@ -91,23 +91,35 @@ class GuessWho extends Component {
                     </div>
 
                     <h1 className="first-do-title">حزر فزر :</h1>
-                    <div className="cardContainer row justify-content-center" >
-                        <div className="card" >
-                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                            <p style={{ display: this.state.descDisplay }}>
-                                مافيها شروط بس حاول تلمح لخويك او للباقين مين شفت وخلهم يجيبونها صح.
+                    {/* true */}
+                    {
+                        this.state.index === output.length ?
+                            <>
+                                <h2 class="last-card">انتهت البطايق، ادخل لعبه ثانية</h2>
+                                <div class="page-container"></div>
+                            </> :
+                            // false
+                            <>
+                                <div className="cardContainer row justify-content-center" >
+                                    <div className="card" >
+                                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                                        <p style={{ display: this.state.descDisplay }}>
+                                            مافيها شروط بس حاول تلمح لخويك او للباقين مين شفت وخلهم يجيبونها صح.
 
-                        </p>
+                </p>
 
-                        </div>
-                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                            <p>  {output[this.state.index]} </p>
+                                    </div>
+                                    <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                                        <p>  {output[this.state.index]} </p>
 
-                            <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+                                        <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
 
-                        </div>
-                    </div>
-                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                                    </div>
+                                </div>
+                                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                            </>
+                    }
+
 
                     <InfoModal
                         show={this.state.modalShow}

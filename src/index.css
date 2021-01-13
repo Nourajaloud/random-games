@@ -49,11 +49,12 @@ form {
 }
 
 .fa-user-plus {
-  text-shadow: 0 0 0px #000000, 0px 4px 5px 0 #e7e4e4;
   margin: 20px 0 30px 0;
   font-size: 1.5em;
   cursor: pointer;
   color: white;
+  text-shadow: -1px 0 #48355b, 0 1px #48355b, 1px 0 #48355b, 0 -1px #48355b;
+
 }
 
 /* timer */
