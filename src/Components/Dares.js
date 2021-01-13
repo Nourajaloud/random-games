@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import InfoModal from './InfoModal'
 import '../styles/buttons.css'
-import '../index.css'
+import '../styles/index.css'
 
 // Transform to Function
 function Dares() {

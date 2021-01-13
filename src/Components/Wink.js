@@ -7,15 +7,15 @@ import logo from '../logo.svg'
 
 class Wink extends Component {
     state = {
-        names: ['', '', ''],
-        characters: ["شايب", "ولد"],
-        showForm: true,
+        names: ['', '', ''], // the inital array
+        characters: ["شايب", "ولد"], // the main characters
         index: -1,
-        descDisplay: "",
-        thirdClass: "",
-        zIndex: "",
-        modalShow: false,
         indexOfNames: 0,
+        descDisplay: "",
+        animateIt: "",
+        zIndex: "",
+        showForm: true,
+        modalShow: false,
     }
 
     addPlayer = () => {
@@ -45,7 +45,8 @@ class Wink extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        //random
+
+        //assign random characters to the palyer
         let leng = this.state.names.length - 2
         for (let i = 0; i < leng; i++) {
             this.setState((prevState) => {
@@ -63,22 +64,25 @@ class Wink extends Component {
             return {
                 index: prevState.index + 1,
                 indexOfNames: prevState.indexOfNames + 1,
-                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                animateIt: "animate__animated animate__fadeOutTopRight animate__faster",
                 zIndex: 9,
                 descDisplay: "none",
             }
         })
+
+        // animate the card after 300 ms
         setTimeout(() => {
             this.setState({
-                thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
+                animateIt: "animate__animated animate__fadeInTopRight animate__faster",
                 zIndex: 100
             })
         }, 300)
     }
 
+    // after clicking the card it will be animated
     handleFlip = e => {
         e.preventDefault()
-        this.setState({ thirdClass: "animate__animated animate__flipOutY" })
+        this.setState({ animateIt: "animate__animated animate__flipOutY" })
     }
 
     setModalShow = (toggleShow) => {
@@ -137,17 +141,15 @@ class Wink extends Component {
                             <div className="card">
                                 <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
 
-
                                 <ul style={{ display: this.state.descDisplay }}>
 
-                                    <li>  <b>الشايب :</b> حاول تقفط الولد قبل لا يغمز لكل البنات</li>
+                                    <li><b>الشايب :</b> حاول تقفط الولد قبل لا يغمز لكل البنات</li>
                                     <li><b>الولد :</b>  حاول ماتبين انك ولد عشان مايقفطك الشايب وتقدر تختم البنات بغمزتك</li>
                                     <li><b>البنت :</b> اذا غمز لك الولد لاتبينين مين هو بس قولي انغمز لي</li>
                                 </ul>
-
-
                             </div>
-                            <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }} onClick={this.handleFlip}>
+
+                            <div className={`secound ${this.state.animateIt}`} style={{ zIndex: this.state.zIndex }} onClick={this.handleFlip}>
                                 <p >{output[this.state.index]}&nbsp; لا تنسى تقلب البطاقة</p>
                                 <img src={logo} className="card-ship" alt="اللوقو" />
 

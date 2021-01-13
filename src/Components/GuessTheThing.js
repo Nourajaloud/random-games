@@ -17,10 +17,12 @@ class GuessTheThing extends Component {
         time: 0,
         timeDisplay: 'none'
     }
+
     setData = () => {
         let data = this.context;
         if (data) {
             if (this.state.guessTheThing.length === 0)
+                // shuffle the array
                 this.setState({ guessTheThing: data.guess.guessTheThing.sort(() => Math.random() - 0.5) })
         }
     }
@@ -35,12 +37,12 @@ class GuessTheThing extends Component {
 
     handleClick = e => {
         e.preventDefault()
-
         this.setState(prevState => {
             let display = prevState.display
             if (prevState.index === prevState.guessTheThing.length) {
                 display = "none"
             }
+
             return {
                 index: prevState.index + 1,
                 display: display,
@@ -53,7 +55,6 @@ class GuessTheThing extends Component {
         })
 
         let interval = setInterval(() => {
-
             if (this.state.time <= 0 || this.state.index === this.state.guessTheThing.length) {
                 clearInterval(interval);
                 this.setState({
@@ -64,9 +65,9 @@ class GuessTheThing extends Component {
             this.setState(prevState => ({
                 time: prevState.time - 1
             }))
-
         }, 1000);
 
+        // animate the card after 300 ms
         setTimeout(() => {
             this.setState({
                 thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
@@ -84,12 +85,14 @@ class GuessTheThing extends Component {
         output = this.state.guessTheThing.map((item, index) => {
             return (
                 <>
-                    <p key={index}> {item.name} </p> <p>{item.menu}</p>
+                    <p key={index}>{item.name}</p>
+                    <p>{item.menu}</p>
                 </>
             )
-
         })
+
         let content
+        // if the guess the thing array is empty show the spinner
         if (this.state.guessTheThing.length === 0) {
             content = (
                 <Spinner />
@@ -104,7 +107,6 @@ class GuessTheThing extends Component {
                             <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                         </div>
 
-
                         <h1 className="logo-name">حزر الشيء :</h1>
                         {
                             this.state.index === output.length ?
@@ -112,27 +114,24 @@ class GuessTheThing extends Component {
                                     <h2 class="last-card">انتهت البطايق، جرب لعبه ثانية</h2>
                                     <div class="page-container"></div>
                                 </> :
-                                // false
+
+                                // if the guess the thing array is not empty show the content
                                 <>
                                     <div className="cardContainer row justify-content-center" >
                                         <div className="card guess-the-thing-text" >
                                             <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
                                             <p style={{ display: this.state.descDisplay }}>
-                                                بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
-                </p>
-
+                                                بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.</p>
                                         </div>
+
                                         <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
                                             {/* timer */}
                                             <div class="countdown" style={{ display: this.state.timeDisplay }}>
                                                 <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                                                <svg>
-                                                    <circle r="18" cx="20" cy="20"></circle>
-                                                </svg>
+                                                <svg><circle r="18" cx="20" cy="20"></circle></svg>
                                             </div>
                                             {output[this.state.index]}
                                             <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
-
                                         </div>
                                     </div>
                                     <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>

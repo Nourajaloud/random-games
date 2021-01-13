@@ -1,10 +1,14 @@
+:root {
+  --primaryColor: #48355b;
+}
+
 * {
   margin: 0;
 }
 
 body {
   font-family: "Cairo", sans-serif !important;
-  background-image: url("background.svg");
+  background-image: url("../background.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,25 +21,30 @@ body {
   user-select: none;
 }
 
+/* learn more about us */
 summary {
   outline: none;
 }
 details {
   padding: 10px;
 }
-
 .nav-list {
   height: 140px;
 }
 .page-container {
   height: 700px;
 }
+.developers span a {
+  margin: 15px;
+  text-decoration: none;
+  color: black;
+}
 
 /* Input */
 
 .playersName {
   margin: 10px 0;
-  color: #48355b;
+  color: var(--primaryColor);
   border-radius: 10px;
   padding: 5px 30px;
   box-shadow: 0 0 0px #000000, 0px 4px 5px 0 #e7e4e4;
@@ -49,46 +58,32 @@ form {
   margin-top: 40px;
 }
 
+/* add & remove players buttons */
+
+.fa-user-plus,
+.removePlayer {
+  cursor: pointer;
+  color: white;
+  text-shadow: -1px 0 var(--primaryColor), 0 1px var(--primaryColor),
+    1px 0 var(--primaryColor), 0 -1px var(--primaryColor);
+}
 .fa-user-plus {
   margin: 20px 0 30px 0;
   font-size: 1.5em;
-  cursor: pointer;
-  color: white;
-  text-shadow: -1px 0 #48355b, 0 1px #48355b, 1px 0 #48355b, 0 -1px #48355b;
-}
-
-.removePlayer {
-  color: white;
-  text-shadow: -1px 0 #48355b, 0 1px #48355b, 1px 0 #48355b, 0 -1px #48355b;
-  cursor: pointer;
 }
 .removePlayer:hover {
   font-size: 1.1em;
   color: #ff6d00;
 }
-/* timer */
-.countdown {
-  /* position: relative;
-  margin: auto;
-  margin-top: 100px;
-  height: 40px;
-  width: 40px;
-  text-align: center; */
-}
 
-.developers span a {
-  margin: 15px;
-  text-decoration: none;
-  color: black;
-}
+/* timer */
 
 .countdown-number {
-  color: #48355b;
+  color: var(--primaryColor);
   display: inline-block;
   line-height: 40px;
   font-size: 12px !important;
 }
-
 svg {
   position: absolute;
   top: 70;
@@ -97,13 +92,12 @@ svg {
   height: 40px;
   transform: rotateY(-180deg) rotateZ(-90deg);
 }
-
 svg circle {
   stroke-dasharray: 113px;
   stroke-dashoffset: 0px;
   stroke-linecap: round;
   stroke-width: 2px;
-  stroke: #48355b;
+  stroke: var(--primaryColor);
   fill: none;
   animation: countdown 16s linear infinite forwards;
 }
@@ -116,15 +110,3 @@ svg circle {
     stroke-dashoffset: 113px;
   }
 }
-
-/* @media (min-width: 600px) and (max-width: 900px) {
-  .playersName {
-    margin-top: 40px;
-  }
-}
-/* Large Screens */
-/* @media (min-width: 901px) {
-  .playersName {
-    margin-top: 40px;
-  } 
-}*/

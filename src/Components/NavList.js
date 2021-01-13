@@ -18,7 +18,6 @@ function NavList() {
             <img src={logo} className="logo animate__animated animate__bounceInUp" alt="اللوقو" />
 
             <div className="row justify-content-between">
-
                 <div className="col">
                     <Link className="hvr-bob game-buttons" to="/dares"> قدها ؟</Link>
                 </div>

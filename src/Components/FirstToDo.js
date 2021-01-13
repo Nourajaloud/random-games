@@ -23,6 +23,7 @@ class FirstToDo extends Component {
         if (data) {
             if (this.state.firstToDo.length === 0)
                 this.setState({
+                    // shuffle the array
                     firstToDo: data.dares.firstToDo.sort(() => Math.random() - 0.5),
                     display: '',
                 })
@@ -54,6 +55,8 @@ class FirstToDo extends Component {
                 descDisplay: "none"
             }
         })
+
+        // animate the card after 300 ms
         setTimeout(() => {
             this.setState({
                 thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
@@ -68,6 +71,7 @@ class FirstToDo extends Component {
 
     render() {
         let content
+        // if the guess the thing array is empty show the spinner
         if (this.state.firstToDo.length === 0) {
             content = (
                 <Spinner />
@@ -75,22 +79,21 @@ class FirstToDo extends Component {
         }
         else {
             content =
-
                 (<>
                     <div className="row justify-content-between">
                         <Link className="return-btn" to="/dares"> تبي ترجع؟</Link>
                         <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
 
                     </div>
+
                     <h1 className="first-do-title">اول من:</h1>
-                    {/* true */}
                     {
                         this.state.index === this.state.firstToDo.length ?
                             <>
                                 <h2 class="last-card">انتهت البطايق، جرب لعبه ثانية</h2>
                                 <div class="page-container"></div>
                             </> :
-                            // false
+                            // if the guess the thing array is not empty show the content
                             <>
                                 <div className="cardContainer row justify-content-center" >
                                     <div className="card" >
@@ -102,7 +105,6 @@ class FirstToDo extends Component {
                                     <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
                                         <p>  {this.state.firstToDo[this.state.index]}</p>
                                         <img src={logo} className="card-ship" alt="اللوقو" />
-
                                     </div>
                                 </div>
 
