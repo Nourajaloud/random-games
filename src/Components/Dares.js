@@ -17,17 +17,17 @@ function Dares() {
                 </div>
                 <div className="row justify-content-center">
 
-                    <h1 className="logo-name animate__animated animate-wobble col-6 " > قدها؟ </h1>
+                    <h1 className="logo-name animate__animated animate-wobble" > قدها؟ </h1>
                 </div>
                 <div className="nav-list" ></div>
 
-                <div className="row justify-content-center align-items-center‏ ">
+                <div className="row justify-content-between">
 
-                    <div className="col-3 ">
+                    <div className="col">
                         <Link className="hvr-bob game-buttons" to="/firstToDo">لك ولا للذيب</Link>
                     </div>
 
-                    <div className="col-3 ">
+                    <div className="col">
                         <Link className="hvr-bob game-buttons" to="/dareToDo">اتحداك تصمل</Link>
                     </div>
                     <div className="nav-list" ></div>

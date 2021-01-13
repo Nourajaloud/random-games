@@ -11,19 +11,20 @@ import InvalidLink from './Components/InvalidLink'
 import firebase from './firebase.js';
 import UserContext from './Components/UserContext'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
 class App extends Component {
   state = {
     data: null
   }
   componentDidMount() {
-    const itemsRef = firebase.database().ref('data');
-    itemsRef.on('value', (snapshot) => {
+    const data = firebase.database().ref('data');
+    data.on('value', (snapshot) => {
       let dbData = snapshot.val();
       this.setState({ data: dbData })
     });
   }
+
   render() {
-    console.log(this.state.data)
     return (
       <>
         <UserContext.Provider value={this.state.data}>

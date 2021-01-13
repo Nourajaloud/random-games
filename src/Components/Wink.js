@@ -18,11 +18,22 @@ class Wink extends Component {
         indexOfNames: 0,
     }
 
-    addPlayer = (e) => {
-        e.preventDefault()
-
+    addPlayer = () => {
         this.setState({
             names: [...this.state.names, ""]
+        })
+    }
+
+    removePlayer = (index) => {
+        let newArray = []
+        let tempArray = [...this.state.names]
+        for (let i = 0; i < tempArray.length; i++) {
+            if (i !== index) {
+                newArray.push(tempArray[i])
+            }
+        }
+        this.setState({
+            names: newArray
         })
     }
 
@@ -73,6 +84,7 @@ class Wink extends Component {
     setModalShow = (toggleShow) => {
         this.setState({ modalShow: toggleShow })
     }
+
     render() {
         let output
         let characters = [...this.state.characters]
@@ -96,12 +108,19 @@ class Wink extends Component {
                             this.state.names.map((name, index) => {
                                 return (
                                     <div key={index}>
-                                        <input className="playersName" type="text" value={name} onChange={(e) => this.handleChange(e, index)} placeholder="اسم اللاعب"></input>
+
+                                        {index > 2 ?
+                                            <>
+                                                <input className="playersName" type="text" value={name} onChange={(e) => this.handleChange(e, index)} placeholder="اسم اللاعب"></input>
+                                                <i className="fas fa-trash removePlayer" onClick={(e) => this.removePlayer(index)}></i>
+                                            </>
+                                            : <input className="playersName" style={{ marginLeft: 20 }} type="text" value={name} onChange={(e) => this.handleChange(e, index)} placeholder="اسم اللاعب"></input>}
                                     </div>
                                 )
                             })
                         }
-                        <i className="fas fa-user-plus " onClick={(e) => this.addPlayer(e)}></i>
+                        <i className="fas fa-user-plus" onClick={(e) => this.addPlayer(e)}></i>
+
                         <button className="game-buttons d-block" style={{ margin: "0 auto" }} type="submit">يلا نلعب</button>
 
                     </form>

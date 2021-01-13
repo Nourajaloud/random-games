@@ -90,7 +90,7 @@ class GuessWho extends Component {
                         <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                     </div>
 
-                    <h1 className="first-do-title">حزر فزر :</h1>
+                    <h1 className="first-do-title">حزر مين :</h1>
                     {/* true */}
                     {
                         this.state.index === output.length ?

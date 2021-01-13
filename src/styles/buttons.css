@@ -22,20 +22,23 @@
 .return-btn,
 .game-buttons {
   border-radius: 50%;
-  font-size: 1.2em;
+  font-size: 0.8em;
   cursor: pointer;
   text-decoration: none !important;
   outline: none !important;
   font-weight: 700;
   border: none;
   color: #fff !important;
-  padding: 8px 15px 10px 10px;
+  padding: 5px 15px 10px 10px;
+  width: 80px;
+  height: 50px;
   border-top: 3px solid rgba(255, 251, 251, 0.37) !important;
 }
 
 .game-buttons {
-  margin: 15px 15px 30px;
+  /* margin: 0 15px 30px; */
   border-radius: 8px;
+  padding: 5px 0;
 }
 
 .info-btn {
@@ -51,10 +54,10 @@
 
 .info-btn,
 .return-btn {
-  margin: 10px 50px 0;
-  width: 80px;
-  height: 80px;
-  font-size: 1em;
+  margin: 10px 20px 0;
+  width: 60px;
+  height: 60px;
+  font-size: 0.9m;
 }
 
 .return-btn,
@@ -85,4 +88,65 @@
   box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
     0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
     0 13px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Medium Screens */
+@media (min-width: 600px) and (max-width: 900px) {
+  .info-btn,
+  .return-btn,
+  .game-buttons {
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: none !important;
+    outline: none !important;
+    font-weight: 700;
+    border: none;
+    color: #fff !important;
+    padding: 8px 15px 10px 10px;
+    border-top: 3px solid rgba(255, 251, 251, 0.37) !important;
+  }
+  .game-buttons {
+    margin: 15px 15px 30px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+  }
+  .info-btn,
+  .return-btn {
+    margin: 10px 50px 0;
+    width: 80px;
+    height: 80px;
+    font-size: 1em;
+  }
+}
+/* Large Screens */
+@media (min-width: 901px) {
+  .info-btn,
+  .return-btn,
+  .game-buttons {
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: none !important;
+    outline: none !important;
+    font-weight: 700;
+    border: none;
+    color: #fff !important;
+    padding: 8px 15px 10px 10px;
+    border-top: 3px solid rgba(255, 251, 251, 0.37) !important;
+  }
+  .game-buttons {
+    margin: 15px 15px 30px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+  }
+  .info-btn,
+  .return-btn {
+    margin: 10px 50px 0;
+    width: 80px;
+    height: 80px;
+    font-size: 1em;
+  }
 }

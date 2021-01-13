@@ -45,7 +45,7 @@ function InfoModal(props) {
                     <summary><b>على طرف لساني</b> </summary>
                     <details>
 
-                        <summary>حزر فزر</summary>
+                        <summary>حزر مين</summary>
                         <p>
                             مافيها شروط بس حاول تلمح لخويك او للباقين مين شفت وخلهم يجيبونها صح.
                     </p>

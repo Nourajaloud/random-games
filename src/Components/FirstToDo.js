@@ -38,7 +38,6 @@ class FirstToDo extends Component {
         this.setData()
     }
 
-
     //next dare button
     handleClick = e => {
         e.preventDefault()
@@ -97,17 +96,14 @@ class FirstToDo extends Component {
                                     <div className="card" >
                                         <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
                                         <p style={{ display: this.state.descDisplay }}>
-                                            تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.
-
-                        </p>
-
+                                            تنفع لمجموعة اشخاص يكون واحد فيهم حكم ويقرا التحديات عشان يقولها للاعبين والذيب فيهم بيخلص التحدي اول.</p>
                                     </div>
+
                                     <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
                                         <p>  {this.state.firstToDo[this.state.index]}</p>
                                         <img src={logo} className="card-ship" alt="اللوقو" />
 
                                     </div>
-
                                 </div>
 
                                 <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
@@ -117,12 +113,9 @@ class FirstToDo extends Component {
                         show={this.state.modalShow}
                         onHide={() => this.setModalShow(false)}
                     />
-
                 </>
-
                 )
         }
-
         return content
     }
 }

@@ -8,6 +8,7 @@ body {
 .logo-name {
   color: #fff;
   font-weight: 900;
+  margin-top: 20px;
 }
 
 .yellow-text {
@@ -15,20 +16,19 @@ body {
 }
 
 .logo {
-  width: 210px ;
+  width: 210px;
   margin-bottom: 20px;
-
 }
 
 /* Medium Screens */
 @media (min-width: 600px) and (max-width: 900px) {
-  .logo  {
+  .logo {
     width: 410px;
   }
 }
 /* Large Screens */
 @media (min-width: 901px) {
-  .logo  {
+  .logo {
     width: 410px;
   }
 }

@@ -43,6 +43,7 @@ details {
   outline: none;
   /* width: 150px; */
   text-align: center;
+  margin-left: 10px;
 }
 form {
   margin-top: 40px;
@@ -54,9 +55,17 @@ form {
   cursor: pointer;
   color: white;
   text-shadow: -1px 0 #48355b, 0 1px #48355b, 1px 0 #48355b, 0 -1px #48355b;
-
 }
 
+.removePlayer {
+  color: white;
+  text-shadow: -1px 0 #48355b, 0 1px #48355b, 1px 0 #48355b, 0 -1px #48355b;
+  cursor: pointer;
+}
+.removePlayer:hover {
+  font-size: 1.1em;
+  color: #ff6d00;
+}
 /* timer */
 .countdown {
   /* position: relative;
