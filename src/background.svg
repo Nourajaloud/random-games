@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="898" viewBox="0 0 1920 898">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="894" viewBox="0 0 1920 894">
   <defs>
     <clipPath id="clip-Web_1920_1">
-      <rect width="1920" height="898"/>
+      <rect width="1920" height="894"/>
     </clipPath>
   </defs>
   <g id="Web_1920_1" data-name="Web 1920 – 1" clip-path="url(#clip-Web_1920_1)">
-    <rect width="1920" height="898" fill="#48355b"/>
+    <rect width="1920" height="894" fill="#48355b"/>
     <rect id="Rectangle_2" data-name="Rectangle 2" width="1978" height="304" transform="translate(-10 667)" fill="#e7e4e4"/>
     <ellipse id="Ellipse_14" data-name="Ellipse 14" cx="202" cy="105.5" rx="202" ry="105.5" transform="translate(-69.009 461.699) rotate(9)" fill="#e7e4e4"/>
     <ellipse id="Ellipse_15" data-name="Ellipse 15" cx="370.5" cy="57" rx="370.5" ry="57" transform="translate(-181 646)" fill="#e7e4e4"/>
@@ -38,7 +38,6 @@
     <ellipse id="Ellipse_36" data-name="Ellipse 36" cx="202" cy="85.5" rx="202" ry="85.5" transform="translate(1400 784)" fill="#fff"/>
     <ellipse id="Ellipse_31" data-name="Ellipse 31" cx="370.5" cy="57" rx="370.5" ry="57" transform="translate(-177 812)" fill="#fff"/>
     <ellipse id="Ellipse_38" data-name="Ellipse 38" cx="202" cy="85.5" rx="202" ry="85.5" transform="translate(331 703)" fill="#fff"/>
-    <ellipse id="Ellipse_39" data-name="Ellipse 39" cx="202" cy="85.5" rx="202" ry="85.5" transform="translate(1222 711)" fill="#fff"/>
     <ellipse id="Ellipse_40" data-name="Ellipse 40" cx="202" cy="85.5" rx="202" ry="85.5" transform="translate(1626 727)" fill="#fff"/>
     <ellipse id="Ellipse_41" data-name="Ellipse 41" cx="232" cy="85.5" rx="232" ry="85.5" transform="translate(-88 683)" fill="#fff"/>
   </g>
