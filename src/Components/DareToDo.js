@@ -79,22 +79,32 @@ class DareToDo extends Component {
                     </div>
 
                     <h1 className="first-do-title">اتحداك تصمل</h1>
-                    <div className="cardContainer row justify-content-center" >
-                        <div className="card" >
-                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                            <p style={{ display: this.state.descDisplay }}>
-                                تنفع لمجموعة اشخاص تمر التحديات عليهم واحد واحد والكل مجبور ينفذ ولا ترا بيطلع من اللعبة وراح يتم تدشين لقب الكفو على الصامل.
+                    {/* true */}
+                    {
+                        this.state.index === this.state.dareToDo.length ?
+                            <>
+                                <h2 class="last-card">انتهت البطايق، جرب لعبه ثانية</h2>
+                                <div class="page-container"></div>
+                            </> :
+                            // false
+                            <>
+                                <div className="cardContainer row justify-content-center" >
+                                    <div className="card" >
+                                        <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                                        <p style={{ display: this.state.descDisplay }}>
+                                            تنفع لمجموعة اشخاص تمر التحديات عليهم واحد واحد والكل مجبور ينفذ ولا ترا بيطلع من اللعبة وراح يتم تدشين لقب الكفو على الصامل.
                         </p>
 
-                        </div>
-                        <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                            <p>   {this.state.dareToDo[this.state.index]}</p>
-                            <img src={logo} className="card-ship" alt="اللوقو" />
+                                    </div>
+                                    <div className={`secound ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                                        <p>   {this.state.dareToDo[this.state.index]}</p>
+                                        <img src={logo} className="card-ship" alt="اللوقو" />
 
-                        </div>
-                    </div>
-                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-
+                                    </div>
+                                </div>
+                                <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                            </>
+                    }
 
                     <InfoModal
                         show={this.state.modalShow}
