@@ -95,7 +95,7 @@ class GuessWho extends Component {
                     {
                         this.state.index === output.length ?
                             <>
-                                <h2 class="last-card">انتهت البطايق، ادخل لعبه ثانية</h2>
+                                <h2 class="last-card">انتهت البطايق، جرب لعبه ثانية</h2>
                                 <div class="page-container"></div>
                             </> :
                             // false

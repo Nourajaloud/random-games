@@ -14,19 +14,21 @@ body {
   color: #ffd600;
 }
 
-.logo img {
-  width: 410px;
+.logo {
+  width: 210px ;
+  margin-bottom: 20px;
+
 }
 
 /* Medium Screens */
 @media (min-width: 600px) and (max-width: 900px) {
-  .logo img {
+  .logo  {
     width: 410px;
   }
 }
 /* Large Screens */
 @media (min-width: 901px) {
-  .logo img {
+  .logo  {
     width: 410px;
   }
 }

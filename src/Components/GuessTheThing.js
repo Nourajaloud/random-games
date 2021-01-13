@@ -106,29 +106,38 @@ class GuessTheThing extends Component {
 
 
                         <h1 className="logo-name">حزر الشيء :</h1>
-                        <div className="cardContainer row justify-content-center" >
-                            <div className="card guess-the-thing-text" >
-                                <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
-                                <p style={{ display: this.state.descDisplay }}>
-                                    بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
+                        {
+                            this.state.index === output.length ?
+                                <>
+                                    <h2 class="last-card">انتهت البطايق، جرب لعبه ثانية</h2>
+                                    <div class="page-container"></div>
+                                </> :
+                                // false
+                                <>
+                                    <div className="cardContainer row justify-content-center" >
+                                        <div className="card guess-the-thing-text" >
+                                            <p style={{ display: this.state.descDisplay }}>التعليمات:</p>
+                                            <p style={{ display: this.state.descDisplay }}>
+                                                بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.
                 </p>
 
-                            </div>
-                            <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
-                                {/* timer */}
-                                <div class="countdown" style={{ display: this.state.timeDisplay }}>
-                                    <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                                    <svg>
-                                        <circle r="18" cx="20" cy="20"></circle>
-                                    </svg>
-                                </div>
-                                {output[this.state.index]}
-                                <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
+                                        </div>
+                                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                                            {/* timer */}
+                                            <div class="countdown" style={{ display: this.state.timeDisplay }}>
+                                                <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
+                                                <svg>
+                                                    <circle r="18" cx="20" cy="20"></circle>
+                                                </svg>
+                                            </div>
+                                            {output[this.state.index]}
+                                            <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
 
-                            </div>
-                        </div>
-                        <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
-
+                                        </div>
+                                    </div>
+                                    <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
+                                </>
+                        }
                         <InfoModal
                             show={this.state.modalShow}
                             onHide={() => this.setModalShow(false)}
