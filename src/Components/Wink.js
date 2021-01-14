@@ -7,13 +7,13 @@ import logo from '../logo.svg'
 
 class Wink extends Component {
     state = {
-        names: ['', '', ''], // the inital array
-        characters: ["شايب", "ولد"], // the main characters
-        index: -1,
-        indexOfNames: 0,
-        descDisplay: "",
-        animateIt: "",
-        zIndex: "",
+        names: ['', '', ''], // the inital of the players namea array
+        characters: ["شايب", "ولد"], // the main characters 
+        index: -1, //increased on each click to show the next card
+        indexOfNames: 0, //increased on each click to show the next player name
+        descDisplay: "", //description display
+        animateIt: "", //toggle animation of the card on each click
+        zIndex: "", //to send the card backward and bring the next upward
         showForm: true,
         modalShow: false,
     }
@@ -37,12 +37,14 @@ class Wink extends Component {
         })
     }
 
+    //on player's input register the value
     handleChange = (e, index) => {
         e.preventDefault()
         this.state.names[index] = e.target.value
         this.setState({ names: this.state.names })
     }
 
+    //show the names with assigned characters
     handleSubmit = (e) => {
         e.preventDefault()
 
@@ -51,13 +53,14 @@ class Wink extends Component {
         for (let i = 0; i < leng; i++) {
             this.setState((prevState) => {
                 return {
-                    characters: [...prevState.characters, "بنت"].sort(() => Math.random() - 0.5),
-                    showForm: false
+                    characters: [...prevState.characters, "بنت"].sort(() => Math.random() - 0.5), //suffle the characters
+                    showForm: false //hide the form
                 }
             })
         }
     }
 
+    //show next name with the assigned character
     handleClick = e => {
         e.preventDefault()
         this.setState(prevState => {
@@ -79,18 +82,18 @@ class Wink extends Component {
         }, 300)
     }
 
-    // after clicking the card it will be animated
+    // after clicking the card it will be animated as a flip
     handleFlip = e => {
         e.preventDefault()
         this.setState({ animateIt: "animate__animated animate__flipOutY" })
     }
 
-    setModalShow = (toggleShow) => {
+    setModalShow = (toggleShow) => { //show info modal
         this.setState({ modalShow: toggleShow })
     }
 
     render() {
-        let output
+        let output //output array
         let characters = [...this.state.characters]
         let names = [...this.state.names]
         output = characters.map((ele, index) => {
@@ -112,7 +115,7 @@ class Wink extends Component {
                             this.state.names.map((name, index) => {
                                 return (
                                     <div key={index}>
-
+                                        {/* default three players */}
                                         {index > 2 ?
                                             <>
                                                 <input className="playersName" type="text" value={name} onChange={(e) => this.handleChange(e, index)} placeholder="اسم اللاعب"></input>

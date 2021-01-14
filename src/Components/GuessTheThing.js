@@ -9,16 +9,15 @@ import Spinner from './Spinner';
 class GuessTheThing extends Component {
     static contextType = UserContext;
     state = {
-        guessTheThing: [],
-        items: null,
-        index: -1,
+        guessTheThing: [], //array of guesses
+        index: -1,//increased on each click to show the next card
         display: '',
         modalShow: false,
-        time: 0,
+        time: 0, // timer
         timeDisplay: 'none'
     }
 
-    setData = () => {
+    setData = () => { //get data from context and set the array
         let data = this.context;
         if (data) {
             if (this.state.guessTheThing.length === 0)
@@ -27,7 +26,6 @@ class GuessTheThing extends Component {
         }
     }
 
-    // bring the data from context
     componentDidUpdate() { //triggered if data changed in the database
         this.setData()
     }
@@ -35,6 +33,7 @@ class GuessTheThing extends Component {
         this.setData()
     }
 
+    //handle the click of 'next' button
     handleClick = e => {
         e.preventDefault()
         this.setState(prevState => {
@@ -44,44 +43,45 @@ class GuessTheThing extends Component {
             }
 
             return {
-                index: prevState.index + 1,
+                time: 5, //start at time 15
+                index: prevState.index + 1, //increase to show next card
                 display: display,
-                time: 15,
-                timeDisplay: '',
-                thirdClass: "animate__animated animate__fadeOutTopRight animate__faster",
+                timeDisplay: '', //show time
+                animated: "animate__animated animate__fadeOutTopRight animate__faster",
                 zIndex: 9,
-                descDisplay: "none"
+                descDisplay: "none" // hide instructions
             }
         })
 
+        //timer
         let interval = setInterval(() => {
             if (this.state.time <= 0 || this.state.index === this.state.guessTheThing.length) {
                 clearInterval(interval);
                 this.setState({
-                    timeDisplay: 'none'
+                    timeDisplay: 'none',
                 })
             }
 
             this.setState(prevState => ({
-                time: prevState.time - 1
+                time: prevState.time - 1 // decrease (count down)
             }))
         }, 1000);
 
         // animate the card after 300 ms
         setTimeout(() => {
             this.setState({
-                thirdClass: "animate__animated animate__fadeInTopRight animate__faster",
-                zIndex: 100
+                animated: "animate__animated animate__fadeInTopRight animate__faster",
+                zIndex: 100 //to front
             })
         }, 300)
     }
 
     setModalShow = (toggleShow) => {
-        this.setState({ modalShow: toggleShow })
+        this.setState({ modalShow: toggleShow }) //website info 
     }
 
     render() {
-        let output
+        let output //output array
         output = this.state.guessTheThing.map((item, index) => {
             return (
                 <>
@@ -103,7 +103,7 @@ class GuessTheThing extends Component {
                 (
                     <>
                         <div className="row justify-content-between">
-                            <Link to="/guess" className="return-btn">تبي ترجع</Link>
+                            <Link to="/guess" className="return-btn">تبي ترجع؟</Link>
                             <button className="info-btn" onClick={() => this.setModalShow(true)}>اعرفنا اكثر</button>
                         </div>
 
@@ -124,7 +124,7 @@ class GuessTheThing extends Component {
                                                 بتسأل الي بيلعبون اسئلة ولازم يجاوبون قبل مايداهمهم الوقت.. بس ترا ساعدناك وعطيناك اجابات تنقذك لو توهقت وماجاء على بالك شيء، ولا تقولها! احتفظ فيها لين ينتهي الوقت.</p>
                                         </div>
 
-                                        <div className={`secound secound-img ${this.state.thirdClass}`} style={{ zIndex: this.state.zIndex }}>
+                                        <div className={`secound secound-img ${this.state.animated}`} style={{ zIndex: this.state.zIndex }}>
                                             {/* timer */}
                                             <div class="countdown" style={{ display: this.state.timeDisplay }}>
                                                 <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
