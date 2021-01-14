@@ -75,9 +75,11 @@ function InfoModal(props) {
                     </ul>
 
                 </details>
+
                 <hr />
+
                 <p><b>مطورين الموقع: </b></p>
-                {/* <div className="container d-flex"> */}
+
                 <div className="d-flex justify-content-around">
                     <span>نـوف الـشـهـري</span>
                     <span>نـوره الـجـلـعـود</span>
