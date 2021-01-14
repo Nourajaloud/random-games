@@ -6,7 +6,7 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="container-fluid justify-content-center text-center ">
+    <div className="container-fluid justify-content-center text-center">
       <App />
     </div>
   </React.StrictMode>,
