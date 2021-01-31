@@ -11,10 +11,16 @@ class GuessTheThing extends Component {
     state = {
         guessTheThing: [], //array of guesses
         index: -1,//increased on each click to show the next card
-        display: '',
+        display: "",
         modalShow: false,
         time: 0, // timer
-        timeDisplay: 'none'
+        timeDisplay: 'none',
+        animation: "",
+        transform: "",
+        id: "",
+        startTimer: "none"
+
+
     }
 
     setData = () => { //get data from context and set the array
@@ -33,39 +39,58 @@ class GuessTheThing extends Component {
         this.setData()
     }
 
+
+    handleTimer = e => {
+        e.preventDefault()
+        let interval = setInterval(() => {
+
+            if (this.state.time <= 0 || this.state.index === this.state.guessTheThing.length) {
+                clearInterval(interval);
+                this.setState({
+                    timeDisplay: 'none'
+                })
+            }
+
+            this.setState(prevState => ({
+                time: prevState.time - 1
+            }))
+
+        }, 1000);
+        this.setState({
+            id: interval,
+            animation: "countdown 6s linear infinite forwards",
+            transform: "rotateY(-180deg) rotateZ(-90deg)",
+            startTimer: "none",
+            display: ""
+        })
+        console.log("test")
+    }
+
     //handle the click of 'next' button
     handleClick = e => {
         e.preventDefault()
+        clearInterval(this.state.id);
+
         this.setState(prevState => {
-            let display = prevState.display
+            let display = "none"
             if (prevState.index === prevState.guessTheThing.length) {
                 display = "none"
             }
 
             return {
-                time: 5, //start at time 15
+                time: 5, //start at time 5
                 index: prevState.index + 1, //increase to show next card
                 display: display,
                 timeDisplay: '', //show time
                 animated: "animate__animated animate__fadeOutTopRight animate__faster",
                 zIndex: 9,
-                descDisplay: "none" // hide instructions
+                descDisplay: "none", // hide instructions
+                transform: "",
+                animation: "",
+                startTimer: "",
+
             }
         })
-
-        //timer
-        let interval = setInterval(() => {
-            if (this.state.time <= 0 || this.state.index === this.state.guessTheThing.length) {
-                clearInterval(interval);
-                this.setState({
-                    timeDisplay: 'none',
-                })
-            }
-
-            this.setState(prevState => ({
-                time: prevState.time - 1 // decrease (count down)
-            }))
-        }, 1000);
 
         // animate the card after 300 ms
         setTimeout(() => {
@@ -127,13 +152,15 @@ class GuessTheThing extends Component {
                                         <div className={`secound secound-img ${this.state.animated}`} style={{ zIndex: this.state.zIndex }}>
                                             {/* timer */}
                                             <div class="countdown" style={{ display: this.state.timeDisplay }}>
-                                                <div class="countdown-number"><p style={{ display: this.state.display }}>{this.state.time}</p></div>
-                                                <svg><circle r="18" cx="20" cy="20"></circle></svg>
+                                                <div class="countdown-number"><p >{this.state.time}</p></div>
+                                                <svg style={{ transform: this.state.transform }}><circle r="18" cx="20" cy="20" style={{ animation: this.state.animation }}></circle></svg>
                                             </div>
                                             {output[this.state.index]}
                                             <img src={logo} className="card-ship guess-ship" alt="اللوقو" />
                                         </div>
                                     </div>
+                                    <button className="hvr-bob game-buttons" onClick={this.handleTimer} style={{ display: this.state.startTimer }}>ابدأ الوقت</button>
+
                                     <button className="hvr-bob game-buttons" onClick={this.handleClick} style={{ display: this.state.display }}>التالي</button>
                                 </>
                         }

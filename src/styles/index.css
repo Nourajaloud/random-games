@@ -90,7 +90,7 @@ svg {
   right: 130px;
   width: 40px;
   height: 40px;
-  transform: rotateY(-180deg) rotateZ(-90deg);
+  /* transform: rotateY(-180deg) rotateZ(-90deg); */
 }
 svg circle {
   stroke-dasharray: 113px;
@@ -99,7 +99,7 @@ svg circle {
   stroke-width: 2px;
   stroke: var(--primaryColor);
   fill: none;
-  animation: countdown 6s linear infinite forwards;
+  /* animation: countdown 11s linear infinite forwards; */
 }
 
 @keyframes countdown {
